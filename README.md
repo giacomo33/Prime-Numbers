@@ -3,8 +3,12 @@ The following repository illustrates the power of using LINQ to List all prime N
   
 The second project named “PrimeNumbersLong” takes the same problem but generates primes based on a 64 bit integer type. This has a maximum of 18,446,744,073,709,551,615. It order to create an efficient mechanism to find the numbers we use the Enumerable.Range static method built into the .NET Framework. As this uses Int32, I created an extension which creates a new Range method based on the "long" integer type. Using LINQ we then have a one line method for generating Prime Numbers.
 
-e.g.
-
-ExtendedEnumerableRange.Int64(2, (long)Math.Sqrt(Number))
+e.g. ExtendedEnumerableRange.Int64(2, (long)Math.Sqrt(Number))
                 .All(n => Number % n != 0);
+                
+Other methods included are:
+1. Find if an indivudual number is a Prime
+2. Find all the Prime factors of any given number
+3. Finding the nth Prime number
+4. Finding all the Primes below a certain number
 
