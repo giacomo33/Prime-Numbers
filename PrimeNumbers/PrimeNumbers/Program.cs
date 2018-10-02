@@ -23,11 +23,7 @@ namespace PrimeNumbers
             int numberEntered = textEntered.ReadOnlyNumbers();
 
             IEnumerable<int> numbers
-                       = Helper.GetNonModuloDigits(numberEntered, 2)
-                       .Intersect(Helper.GetNonModuloDigits(numberEntered, 3)
-                       .Intersect(Helper.GetNonModuloDigits(numberEntered, 5)
-                       .Intersect(Helper.GetNonModuloDigits(numberEntered, 7)
-                       .Intersect(Helper.GetNonModuloDigits(numberEntered, 9)))));
+                        = Helper.GetPrimeNumbers(numberEntered);
 
             foreach (var number in numbers)
             {

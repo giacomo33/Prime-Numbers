@@ -9,6 +9,35 @@ namespace PrimeNumbers
 {
     public static class Helper
     {
+
+        static IEnumerable<int> CalculatePrimeNumbers(int number)
+        {
+            return number.GetPrimeNumbers();
+        }
+
+        public static IEnumerable<int> GetPrimeNumbers(this int number)
+        {
+            long originalNumber = number;
+            do
+            {
+                if (IsPrime(number))
+                    yield return number;
+
+                number--;
+            }
+            while (number > 1);
+        }
+
+        static bool IsPrime(int n)
+        {
+            if (n > 1)
+            {
+                return Enumerable.Range(1, n).Where(x => n % x == 0)
+                                 .SequenceEqual(new[] { 1, n });
+            }
+
+            return false;
+        }
         public static IEnumerable<int> GetNonModuloDigits(int number, int modulo)
         {
 
